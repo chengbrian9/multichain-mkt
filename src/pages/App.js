@@ -1,10 +1,11 @@
-import logo from './logo.svg';
+import logo from '../logo.svg';
 import './App.css';
 import axios from 'axios';
 import { BrowserRouter, Route, Routes, useParams } from 'react-router-dom';
 import Home from './Home';
 import Collection from './Collection';
 import React, { useState, useEffect } from 'react';
+import Header from '../components/Header';
 
 function App() {
   const [ galleryId, setGalleryId ] = useState(0)
@@ -28,9 +29,27 @@ function App() {
   }, [ setGalleryId, setCollectionInfo ]);
 
   return (
-    <div className="App">
-      
-    </div>
+    <>
+      <BrowserRouter>
+      <Header />
+        <Routes>
+          <Route 
+            path='/' 
+            element={<Home
+              galleryId={galleryId} 
+              setGalleryId={setGalleryId} 
+              collectionInfo={collectionInfo} />}>
+          </Route>
+          <Route 
+            path='/collections/:galleryId' 
+            element={<Collection 
+              setGalleryId={setGalleryId} 
+              collectionInfo={collectionInfo[galleryId]} 
+              galleryId={galleryId}/>}>
+          </Route>
+        </Routes>
+      </BrowserRouter>
+    </>
   );
 }
 

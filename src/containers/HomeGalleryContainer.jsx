@@ -1,10 +1,11 @@
-import React from 'react';
+import React  from 'react'
+import CollectionCard from '../components/CollectionCard.jsx'
 
-const GalleryContainer = () => {
+const GalleryContainer = ({ galleryId, collectionInfo, setCollectionInfo, setGalleryId }) => {
     
   return (
-    <div>
-      Home Gallery Container
+    <div className='item-grid'>
+      {collectionInfo.map((x, index) => <CollectionCard galleryId={galleryId} key={index} index={index} collectionInfo={collectionInfo[index]} setGalleryId={setGalleryId}/>)}
     </div>
   )
 }
