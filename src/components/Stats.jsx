@@ -1,11 +1,11 @@
 import React from 'react';
 
 
-const Stats = () => {
+const Stats = ({ data }) => {
 
   return (
     <div>
-      Stats
+      {data}
     </div>
   )
 }
