@@ -1,26 +1,35 @@
 import axios from 'axios';
-import React, { useEffect, useState } from 'react'
-import NFTCard from '../components/NFTCard.jsx'
+import React, { useEffect, useState } from 'react';
+import NFTCard from '../components/NFTCard.jsx';
+import { useParams } from 'react-router-dom';
 
 const CollectionGalleryContainer = ({ collectionInfo, setListed, galleryId }) => {
+
   const [ data, setData ] = useState([])
- 
-    useEffect(() => {
-      //grab nft data from selected collection
-      axios.get(`https://cors-anywhere.herokuapp.com/https://ftx.us/api/nft/nfts_filtered?startInclusive=0&endExclusive=25&nft_filter_string={"collection":"${collectionInfo.group_id}"}`, {
-      }) 
-      .then(data => {
-        console.log('data', data.data.result.nfts)
-        setData(data.data.result.nfts)
-      })
-      .catch(err => console.log(err))
-      
-    }, [ collectionInfo ]);
+  let { name } = useParams();
+  const gridStyle = {
+    display: "grid", 
+    gridTemplateColumns: "400px 400px 400px", 
+    gridTemplateRows: "auto", 
+    justifyContent: "center", 
+    justifyItems: "center"
+  }
+  useEffect(() => {
+    //grab nft data from selected collection
+    axios.get(`https://cors-anywhere.herokuapp.com/https://ftx.us/api/nft/nfts_filtered?startInclusive=0&endExclusive=25&nft_filter_string={"collection":"${name}"}`, {
+    }) 
+    .then(data => {
+      console.log('data', data.data.result.nfts)
+      setData(data.data.result.nfts)
+    })
+    .catch(err => console.log(err))
+    
+  }, [ name ]);
     
 
   return (
-    <div className='item-grid'>
-      {data.length > 0 ? data.map((el, index) => <NFTCard key={index} data={el} />) : 'There are no NFTs listed for this collection :('}
+    <div style={gridStyle}>
+      {data.length > 0 ? data.map((el, index) => <NFTCard key={index} data={el} />) : <div style={{display: "flex", justifyContent: "center"}}><p>There are no NFTs listed for this collection... </p></div>}
     </div>
   )
 }

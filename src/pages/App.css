@@ -2,6 +2,11 @@
   text-align: center;
 }
 
+body {
+  background: #18191A;
+  color: white
+}
+
 nav {
   background-color: #2B303A;
   padding: 30px;
@@ -78,3 +83,7 @@ a:hover {
       right: 0;
   }
 } 
+
+.cardWrap:hover{
+  filter: opacity(80%);
+}

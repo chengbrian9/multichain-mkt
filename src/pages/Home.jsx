@@ -1,16 +1,18 @@
 import React from 'react';
-import GalleryContainer from '../containers/HomeGalleryContainer';
+import HomeGalleryContainer from '../containers/HomeGalleryContainer';
+import SelectMenu from '../components/SelectMenu';
 
-const Home = ({ galleryId, setGalleryId, setCollectionInfo, collectionInfo }) => {
+const Home = () => {
 
   return (
     <div>
-      <div id="header"> 
+      <div style={{textAlign: "center"}}> 
         <h1>The Multichain Marketplace</h1>
         <h2> Powered by FTX </h2> 
         <h2>Browse Collections...</h2>
+        <SelectMenu />
       </div>
-      <GalleryContainer galleryId={galleryId} setCollectionInfo={setCollectionInfo} collectionInfo={collectionInfo} setGalleryId={setGalleryId} />
+      <HomeGalleryContainer />
     </div>
   )
 }
