@@ -5,10 +5,11 @@ import Social from '../components/Social';
 import Stats from '../components/Stats';
 import axios from 'axios';
 
-const Collection = () => {
+const Collection = ({chain}) => {
 
   let { id } = useParams()
   let num = parseInt(id)
+  console.log('id', id)
   const [ colData, setColData ] = useState(null);
 
   useEffect(() => {
@@ -16,10 +17,13 @@ const Collection = () => {
       params: {
         'startInclusive': num,
         'endExclusive': num + 1,
-        'collectionType': 'eth'
+        'collectionType': `eth`
       }
     })
-    .then(data => setColData(data.data.result.collections[0]))
+    .then(data => {
+      console.log(data.data.result.collections[0])
+      setColData(data.data.result.collections[0])
+    })
     .catch(err => console.log(err))
   }, [ num ]); 
 
@@ -70,7 +74,7 @@ const Collection = () => {
   let vol = Math.floor(colData.volume) + " USD"
   let statsData = [vol, count]
   let socials = socialsLinks.map((x, index) => <Social key={index} socialLink={x}/>)
-  let stats = statsData.map((x, index) => <Stats style={{border: "1px"}}key={index} data={x} />)
+  let stats = statsData.map((x, index) => <Stats style={{border: "1px"}} key={index} data={x} />)
   const defaultBanner = 'https://a.scpr.org/i/d0bbbb3ec1a6cf86090c6fe2d9128082/141881-full.jpg'
   const defaultPfp = 'https://a.scpr.org/i/d0bbbb3ec1a6cf86090c6fe2d9128082/141881-full.jpg'
   const defaultDesc = 'This is the default description'
@@ -104,7 +108,7 @@ const Collection = () => {
           <p style={{textAlign: "center", width: "65%"}}>{desc ? desc : defaultDesc}</p>
         </div>
       </div> 
-     <CollectionGalleryContainer />
+     <CollectionGalleryContainer name={dict.name}/>
     </>
   }
   </div>

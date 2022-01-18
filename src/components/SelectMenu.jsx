@@ -1,14 +1,24 @@
-import { Select } from '@chakra-ui/react';
+import DropdownButton from 'react-bootstrap/DropdownButton';
+import Dropdown from 'react-bootstrap/Dropdown'
 import React from 'react';
 
-const SelectMenu = () => {
+const SelectMenu = ({ setChain }) => {
+
+  function handleSelect(e) {
+    setChain(e)
+  }
 
 return (
-  <Select placeholder='Select chain' variant='flushed' size='lg'>
-    <option value='all'>All</option>
-    <option value='eth'>ETH</option>
-    <option value='sol'>SOL</option>
-  </Select>
+  <DropdownButton
+  title="Select Chain"
+  onSelect={handleSelect}
+  style={{paddingTop: 15, paddingBottom: 15}}
+    >
+          <Dropdown.Item eventKey="all"> All </Dropdown.Item>
+          <Dropdown.Item eventKey="eth"> ETH </Dropdown.Item>
+          <Dropdown.Item eventKey="sol"> SOL </Dropdown.Item>
+          <Dropdown.Divider />
+  </DropdownButton>
 )
 
 }

@@ -3,10 +3,11 @@ import React, { useEffect, useState } from 'react';
 import NFTCard from '../components/NFTCard.jsx';
 import { useParams } from 'react-router-dom';
 
-const CollectionGalleryContainer = ({ collectionInfo, setListed, galleryId }) => {
+const CollectionGalleryContainer = ({ name }) => {
 
   const [ data, setData ] = useState([])
-  let { name } = useParams();
+  // let { name } = useParams();
+  console.log(name)
   const gridStyle = {
     display: "grid", 
     gridTemplateColumns: "400px 400px 400px", 

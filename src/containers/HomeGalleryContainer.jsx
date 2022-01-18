@@ -2,16 +2,17 @@ import React, { useEffect, useState }  from 'react';
 import CollectionCard from '../components/CollectionCard.jsx';
 import axios from 'axios';
 
-const HomeGalleryContainer = () => {
+const HomeGalleryContainer = ({ chain }) => {
   const [ isErr, setErr ] = useState(false);
   const [ collectionInfo , setCollectionInfo ] = useState([]);
+  const [ isLoading, setIsLoading ] = useState(true);
 
   useEffect(() => { 
     axios.get('https://cors-anywhere.herokuapp.com/https://ftx.us/api/nft/collections_page', {
         params: {
           'startInclusive': 0,
           'endExclusive': 25,
-          'collectionType': 'eth'
+          'collectionType': `eth`
         }
     })
      //filter out duplicate collections
@@ -22,14 +23,17 @@ const HomeGalleryContainer = () => {
       return uniqueVals
     })
     //set state to unique collection data
-    .then(data => setCollectionInfo(Array.from(data).map(x => x[1])))
+    .then(data => {
+      setCollectionInfo(Array.from(data).map(x => x[1]))
+      setIsLoading(false)
+    })
     .catch(err => {
       console.log(err)
       setErr(true)
     })
-  }, [ setCollectionInfo ]);
+  }, [ chain, setCollectionInfo ]);
 
-  if (!collectionInfo) {
+  if (isLoading) {
     return (
       <div style={{display: "flex", justifyContent: "center", marginTop: 250}}>
         <p>Loading...</p>
