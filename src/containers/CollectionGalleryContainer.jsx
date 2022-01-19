@@ -4,10 +4,10 @@ import NFTCard from '../components/NFTCard.jsx';
 import { useParams } from 'react-router-dom';
 
 const CollectionGalleryContainer = ({ name }) => {
-
+  const [ isErr, setErr ] = useState(false);
+  const [ isLoading, setIsLoading ] = useState(true);
   const [ data, setData ] = useState([])
-  // let { name } = useParams();
-  console.log(name)
+  
   const gridStyle = {
     display: "grid", 
     gridTemplateColumns: "400px 400px 400px", 
@@ -20,13 +20,31 @@ const CollectionGalleryContainer = ({ name }) => {
     axios.get(`https://cors-anywhere.herokuapp.com/https://ftx.us/api/nft/nfts_filtered?startInclusive=0&endExclusive=25&nft_filter_string={"collection":"${name}"}`, {
     }) 
     .then(data => {
-      console.log('data', data.data.result.nfts)
-      setData(data.data.result.nfts)
+      setData(data.data.result.nfts);
+      setIsLoading(false);
     })
-    .catch(err => console.log(err))
+    .catch(err => {
+      console.log(err);
+      setErr(true);
+    })
     
   }, [ name ]);
-    
+  
+  if (isLoading) {
+    return (
+      <div style={{display: "flex", justifyContent: "center", marginTop: 250}}>
+        <p>Loading...</p>
+      </div>
+    )
+  }
+
+  if (isErr) {
+    return (
+      <div>
+        There was an error! :/
+      </div>
+    )
+  }
 
   return (
     <div style={gridStyle}>

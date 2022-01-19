@@ -1,71 +1,76 @@
-# Getting Started with Create React App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# The Multichain Marketplace
 
-## Available Scripts
+A NFT marketplace front-end webapp powered by FTX's NFT API. The Multichain Marketplace is a take home project for FTX US. 
 
-In the project directory, you can run:
 
-### `npm start`
+## Considerations/Implementation
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- View up to 25 different NFT Collections
+- View up to 25 listed NFTs, listing prices, and collection stats/links
+- Used dynamic routing using React Router V6 so the selected collection can maintain it's state as the page changes, as well as if the page is refreshed
+- Retrieve only unique collections on Marketplace Home to avoid duplicates using a Map data structure
+- Default pictures for collection banner/PFP/description if none available from the API endpoint 
+- Prevent emoji rendering for individual NFT names using RegEx
+- Implemented loading and error states
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
 
-### `npm test`
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## Run Locally
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Clone the project
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+  git clone https://github.com/chengbrian9/multichain-mkt.git
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Go to the project directory
 
-### `npm run eject`
+```bash
+  cd multichain-mkt
+```
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+Install dependencies
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+  npm install
+```
+Get temporary proxy access by visiting: 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+  https://cors-anywhere.herokuapp.com/corsdemo
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
+Start the server
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+  npm run start
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
 
-### Code Splitting
+## Low Fidelity Mockup
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+https://www.figma.com/file/QXtYEPY9FEJbLPf37VuEYk/Untitled?node-id=0%3A1
 
-### Analyzing the Bundle Size
+## Running Tests
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+To run tests, run the following command
 
-### Making a Progressive Web App
+```bash
+  npm run test
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
 
-### Advanced Configuration
+## Stretch Features
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+- Filter collections by chain/sorting within a collection
 
-### Deployment
+- Search by collection name 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+- More caching via localStorage to minimize API calls 
 
-### `npm run build` fails to minify
+- Data encoding to prevent XSS attacks 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
-# multichain-mkt
+- Trading volume USD to ETH conversion using ethers.js or API market data  
+
+- Responsive Styling (branding + animations + filling in imgs)

@@ -8,8 +8,9 @@ const Social = ({ socialLink }) => {
   useEffect(() => {
     if (clicked) {
       window.open(`${socialLink}`)
+      setClicked(!clicked)
     }
-  })
+  }, [clicked, setClicked, socialLink])
 
   return (
      <div>

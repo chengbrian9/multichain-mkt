@@ -10,7 +10,7 @@ const Home = ({ chain, setChain }) => {
         <h1>The Multichain Marketplace</h1>
         <h2> Powered by FTX </h2> 
         <h2>Browse Collections...</h2>
-        <SelectMenu chain={chain} setChain={setChain}/>
+        {/* <SelectMenu chain={chain} setChain={setChain}/> */}
       </div>
       <HomeGalleryContainer chain={chain}/>
     </div>

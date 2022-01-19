@@ -4,8 +4,8 @@ import axios from 'axios';
 
 const HomeGalleryContainer = ({ chain }) => {
   const [ isErr, setErr ] = useState(false);
-  const [ collectionInfo , setCollectionInfo ] = useState([]);
   const [ isLoading, setIsLoading ] = useState(true);
+  const [ collectionInfo , setCollectionInfo ] = useState([]);
 
   useEffect(() => { 
     axios.get('https://cors-anywhere.herokuapp.com/https://ftx.us/api/nft/collections_page', {

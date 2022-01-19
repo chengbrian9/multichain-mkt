@@ -9,7 +9,7 @@ const Collection = ({chain}) => {
 
   let { id } = useParams()
   let num = parseInt(id)
-  console.log('id', id)
+
   const [ colData, setColData ] = useState(null);
 
   useEffect(() => {
@@ -21,7 +21,6 @@ const Collection = ({chain}) => {
       }
     })
     .then(data => {
-      console.log(data.data.result.collections[0])
       setColData(data.data.result.collections[0])
     })
     .catch(err => console.log(err))

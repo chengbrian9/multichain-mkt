@@ -5,6 +5,7 @@ import Home from './Home';
 import Collection from './Collection';
 import React, { useState } from 'react';
 import Header from '../components/Header';
+import About from '../pages/About';
 
 function App() {
   const [ chain, setChain ] = useState('all')
@@ -20,6 +21,10 @@ function App() {
           <Route 
             path='/:name/:id' 
             element={<Collection chain={chain} setChain={setChain} />}>
+          </Route>
+          <Route
+            path='/about'
+            element={<About/>}>
           </Route>
         </Routes>
       </BrowserRouter>
