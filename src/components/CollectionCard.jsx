@@ -49,7 +49,6 @@ const CollectionCard = ({ index, collectionInfo }) => {
           <button style={cardImgStyle} >
             <img style={{borderRadius: 10}} src={pfp} width="250" height="250" alt='img' />
           </button>
-            {/* <p>{price}</p><img src={price} /> */}
           <button style={cardTxtStyle}>
             {name}
           </button>

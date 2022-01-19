@@ -50,7 +50,6 @@ describe('Collection', () => {
   })
 })
 
-
 describe('HomeGalleryContainer', () => {
   let wrapper;
   const props = {
@@ -76,16 +75,4 @@ describe('CollectionGalleryContainer', () => {
     expect(wrapper.containsMatchingElement(<NFTCard/>)).toEqual(false);
   })
 })
-
-// describe('CollectionCard', () => {
-//   let wrapper = shallow(<CollectionCard/>)
-//   it('should have a link to collection', () => {
-//     expect(wrapper.find(Link)).toHaveLength(1);
-//   })
-// })
-
-// describe('NFTCard', () => {
-//   let wrapper = shallow(<NFTCard/>)
-//   it('')
-// })
 

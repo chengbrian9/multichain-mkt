@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import HomeGalleryContainer from '../containers/HomeGalleryContainer';
 import SelectMenu from '../components/SelectMenu';
 
-const Home = ({ chain, setChain }) => {
+const Home = () => {
   
   return (
     <div>
@@ -12,7 +12,7 @@ const Home = ({ chain, setChain }) => {
         <h2>Browse Collections...</h2>
         {/* <SelectMenu chain={chain} setChain={setChain}/> */}
       </div>
-      <HomeGalleryContainer chain={chain}/>
+      <HomeGalleryContainer />
     </div>
   )
 }

@@ -13,6 +13,7 @@ const Collection = ({chain}) => {
   const [ colData, setColData ] = useState(null);
 
   useEffect(() => {
+    //grab selected collection data
     axios.get('https://cors-anywhere.herokuapp.com/https://ftx.us/api/nft/collections_page', {
       params: {
         'startInclusive': num,
@@ -70,10 +71,10 @@ const Collection = ({chain}) => {
   let isVerified = issuer.isVerified
   let socialsLinks = [twitter, discord, site]
   let count = "Total: " + colData.total
-  let vol = Math.floor(colData.volume) + " USD"
+  let vol = "Volume: " + Math.floor(colData.volume) + " USD"
   let statsData = [vol, count]
   let socials = socialsLinks.map((x, index) => <Social key={index} socialLink={x}/>)
-  let stats = statsData.map((x, index) => <Stats style={{border: "1px"}} key={index} data={x} />)
+  let stats = statsData.map((x, index) => <Stats key={index} data={x} />)
   const defaultBanner = 'https://a.scpr.org/i/d0bbbb3ec1a6cf86090c6fe2d9128082/141881-full.jpg'
   const defaultPfp = 'https://a.scpr.org/i/d0bbbb3ec1a6cf86090c6fe2d9128082/141881-full.jpg'
   const defaultDesc = 'This is the default description'

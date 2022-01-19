@@ -8,7 +8,7 @@ import Header from '../components/Header';
 import About from '../pages/About';
 
 function App() {
-  const [ chain, setChain ] = useState('all')
+  // const [ chain, setChain ] = useState('all')
   return (
     <>
       <BrowserRouter>
@@ -16,11 +16,11 @@ function App() {
         <Routes>
           <Route 
             path='/' 
-            element={<Home />}>
+            element={<Home/>}>
           </Route>
           <Route 
             path='/:name/:id' 
-            element={<Collection chain={chain} setChain={setChain} />}>
+            element={<Collection/>}>
           </Route>
           <Route
             path='/about'

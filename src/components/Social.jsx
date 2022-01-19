@@ -14,7 +14,7 @@ const Social = ({ socialLink }) => {
 
   return (
      <div>
-      <button>
+      <button style={{margin: "10px 10px 10px 10px"}}>
         <img src='/icons8-twitter.svg' alt='logo' onClick={() => setClicked(!clicked)} />
       </button>
     </div>
