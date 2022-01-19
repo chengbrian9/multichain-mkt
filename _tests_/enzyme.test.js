@@ -51,7 +51,7 @@ describe('Collection', () => {
 })
 
 describe('HomeGalleryContainer', () => {
-  let wrapper = shallow(<HomeGalleryContainer {...props} />
+  let wrapper = shallow(<HomeGalleryContainer />);
   it('should render loading msg on mount & no children', () => {
     expect(wrapper.find('div').text()).toEqual('Loading...');
     expect(wrapper.containsMatchingElement(<CollectionCard/>)).toEqual(false);
