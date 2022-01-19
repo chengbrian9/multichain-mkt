@@ -13,7 +13,8 @@ const CollectionGalleryContainer = ({ name }) => {
     gridTemplateColumns: "400px 400px 400px", 
     gridTemplateRows: "auto", 
     justifyContent: "center", 
-    justifyItems: "center"
+    justifyItems: "center",
+    marginTop: 55
   }
   useEffect(() => {
     //grab nft data from selected collection

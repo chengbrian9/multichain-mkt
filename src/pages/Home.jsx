@@ -6,10 +6,12 @@ const Home = () => {
   
   return (
     <div>
-      <div style={{textAlign: "center"}}> 
+      <div style={{textAlign: "center", paddingTop: 15}}> 
         <h1>The Multichain Marketplace</h1>
-        <h2> Powered by FTX </h2> 
+        <img src='/cube.gif' alt='cube'></img>
+        <div style={{display: "flex", justifyContent: "center", alignItems: "center"}}><h2> Powered by </h2> <img src='/mceclip1.png' style={{paddingLeft: 10, height: 35, width: 115}}alt='ftx'></img></div> 
         <h2>Browse Collections...</h2>
+
         {/* <SelectMenu chain={chain} setChain={setChain}/> */}
       </div>
       <HomeGalleryContainer />

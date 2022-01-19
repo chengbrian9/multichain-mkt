@@ -33,7 +33,7 @@ describe('Home', () => {
   let wrapper = shallow(<Home />)
   it('should render title', () => {
     expect(wrapper.find('h1').text()).toEqual('The Multichain Marketplace');
-    expect(wrapper.find('h2').at(0).text()).toEqual(' Powered by FTX ');
+    expect(wrapper.find('h2').at(0).text()).toEqual(' Powered by ');
     expect(wrapper.find('h2').at(1).text()).toEqual('Browse Collections...');
   })
   it('should render HomeGallery Container', () => {

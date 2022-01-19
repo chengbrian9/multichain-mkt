@@ -9,7 +9,7 @@ export default function Header() {
         <i className="fas fa-bars"></i>
       </label>
       <Link to="/">
-        <h1 className="logo">The Multichain Market</h1>
+        <h1 className="logo">The Multichain Marketplace</h1>
       </Link>
 
       <ul>

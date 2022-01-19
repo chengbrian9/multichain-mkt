@@ -72,8 +72,7 @@ const Collection = ({chain}) => {
   let socialsLinks = [twitter, discord, site]
   let count = "Total: " + colData.total
   let vol = "Volume: " + Math.floor(colData.volume) + " USD"
-  let statsData = [vol, count]
-  let socials = socialsLinks.map((x, index) => <Social key={index} socialLink={x}/>)
+  let statsData = [count, vol]
   let stats = statsData.map((x, index) => <Stats key={index} data={x} />)
   const defaultBanner = 'https://a.scpr.org/i/d0bbbb3ec1a6cf86090c6fe2d9128082/141881-full.jpg'
   const defaultPfp = 'https://a.scpr.org/i/d0bbbb3ec1a6cf86090c6fe2d9128082/141881-full.jpg'
@@ -94,11 +93,13 @@ const Collection = ({chain}) => {
         <div style={{display: "flex", justifyContent: "center", flexDirection: "column", alignItems: "center"}}>
           <h1 style={{marginBottom: -10}}>{dict.name}</h1>
           <p>by {owner}   
-          {isVerified &&  <img src='/favicon.ico' height='25px' width='25px' style={{ marginLeft: 5}} alt='verified'/> }</p>
+          {isVerified &&  <img src='/verified.png' height='20px' width='20px' style={{ marginLeft: 5}} alt='verified'/> }</p>
         </div>
         
         <div style={horizontalStyle}>
-          {socials} 
+          <Social socialLink={socialsLinks[0]} social={'/twitter.ico'} />
+          <Social socialLink={socialsLinks[1]} social={'/discord.ico'} />
+          <Social socialLink={socialsLinks[2]} social={'/site.png'} />
         </div>
         <div style={horizontalStyle}>
           {stats} 

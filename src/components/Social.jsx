@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 
 
-const Social = ({ socialLink }) => {
+const Social = ({ socialLink, social }) => {
 
   const [ clicked, setClicked ] = useState(false) 
   
@@ -14,8 +14,8 @@ const Social = ({ socialLink }) => {
 
   return (
      <div>
-      <button style={{margin: "10px 10px 10px 10px"}}>
-        <img src='/icons8-twitter.svg' alt='logo' onClick={() => setClicked(!clicked)} />
+      <button style={{margin: "10px 10px 10px 10px", background: "transparent", borderColor: "transparent"}}>
+        <img src={social} style={{width: 25, height: 25}}alt='logo' onClick={() => setClicked(!clicked)} />
       </button>
     </div>
   )
